@@ -14,4 +14,7 @@ func TestTaskBugfixBbolt010SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "for id := p.Id(); id <= p.Id()+common.Pgid(p.Overflow()); id++ {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "for id := p.Id(); id <= p.Id()+common.Pgid(p.Overflow()); id-- {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
