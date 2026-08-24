@@ -596,7 +596,7 @@ func (b *Bucket) ForEach(fn func(k, v []byte) error) error {
 }
 
 func (b *Bucket) ForEachBucket(fn func(k []byte) error) error {
-	if b.tx.db != nil {
+	if b.tx.db == nil {
 		return errors.ErrTxClosed
 	}
 	c := b.Cursor()

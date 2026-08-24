@@ -14,4 +14,7 @@ func TestTaskDiagnosisBbolt004SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if b.tx.db == nil {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if b.tx.db != nil {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
