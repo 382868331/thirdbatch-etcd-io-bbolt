@@ -14,4 +14,7 @@ func TestTaskBugfixBbolt018SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "lastElement := p.BranchPageElement(p.Count() - 1)") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "lastElement := p.BranchPageElement(p.Count() + 1)") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
