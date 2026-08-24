@@ -981,7 +981,7 @@ func (db *DB) Batch(fn func(*Tx) error) error {
 	errCh := make(chan error, 1)
 
 	db.batchMu.Lock()
-	if (db.batch != nil) || (db.batch != nil && len(db.batch.calls) >= db.MaxBatchSize) {
+	if (db.batch == nil) || (db.batch != nil && len(db.batch.calls) >= db.MaxBatchSize) {
 		// There is no existing batch, or the existing batch is full; start a new one.
 		db.batch = &batch{
 			db: db,

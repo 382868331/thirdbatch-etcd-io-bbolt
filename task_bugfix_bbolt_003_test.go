@@ -14,4 +14,7 @@ func TestTaskBugfixBbolt003SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "if (db.batch == nil) || (db.batch != nil && len(db.batch.calls) >= db.MaxBatchSize) {") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "if (db.batch != nil) || (db.batch != nil && len(db.batch.calls) >= db.MaxBatchSize) {") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
