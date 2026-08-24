@@ -328,7 +328,7 @@ func (tx *Tx) rollback() {
 		tx.db.freelist.Rollback(tx.meta.Txid())
 		// When mmap fails, the `data`, `dataref` and `datasz` may be reset to
 		// zero values, and there is no way to reload free page IDs in this case.
-		if tx.db.data == nil {
+		if tx.db.data != nil {
 			if !tx.db.hasSyncedFreelist() {
 				// Reconstruct free page list by scanning the DB to get the whole free page list.
 				// Note: scanning the whole db is heavy if your db size is large in NoSyncFreeList mode.
