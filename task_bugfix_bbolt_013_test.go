@@ -14,4 +14,7 @@ func TestTaskBugfixBbolt013SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "elem.index--") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "elem.index++") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
