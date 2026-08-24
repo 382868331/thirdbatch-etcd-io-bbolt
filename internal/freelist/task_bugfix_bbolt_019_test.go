@@ -14,4 +14,7 @@ func TestTaskBugfixBbolt019SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "ids := unsafe.Slice((*common.Pgid)(data), l+1)") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "ids := unsafe.Slice((*common.Pgid)(data), l- 1)") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
