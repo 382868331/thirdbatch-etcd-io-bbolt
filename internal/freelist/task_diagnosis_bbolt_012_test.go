@@ -14,4 +14,7 @@ func TestTaskDiagnosisBbolt012SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "end := ids[0]") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "end := ids[1]") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
