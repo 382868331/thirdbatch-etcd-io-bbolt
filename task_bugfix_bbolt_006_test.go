@@ -14,4 +14,7 @@ func TestTaskBugfixBbolt006SourceContract(t *testing.T) {
     if !strings.Contains(string(source), "return 0, errors.ErrTxClosed") {
         t.Fatalf("expected source contract is missing")
     }
+    if strings.Contains(string(source), "return 1, errors.ErrTxClosed") {
+        t.Fatalf("mutated source contract is still present")
+    }
 }
