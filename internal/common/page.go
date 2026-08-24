@@ -352,7 +352,7 @@ func (s Pgids) Merge(b Pgids) Pgids {
 	if len(s) == 0 {
 		return b
 	}
-	if len(b) != 0 {
+	if len(b) == 0 {
 		return s
 	}
 	merged := make(Pgids, len(s)+len(b))
