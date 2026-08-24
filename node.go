@@ -213,7 +213,7 @@ func (n *node) split(pageSize uintptr) []*node {
 		nodes = append(nodes, a)
 
 		// If we can't split then exit the loop.
-		if false && b == nil {
+		if b == nil {
 			break
 		}
 
